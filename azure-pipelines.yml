@@ -1,8 +1,14 @@
- trigger:
- - master
-
- pool:
-   vmImage: 'ubuntu-latest'
-
- steps:
- - task:
+trigger:
+  branches:
+    include:
+    - master
+jobs:
+- job: Job_2
+  displayName: Agent job 2
+  pool:
+    name: Azure Pipelines 2
+  steps:
+  - checkout: self
+    clean: true
+    fetchTags: false
+...
